@@ -6,7 +6,8 @@ This allowed me to create the habit of not taking a break, when the alarm went o
 I realized that I needed to stop myself from turning off the alarm and let it reset itself automatically, to actually make use of it
 
 # Freeze Frame
-The best way to actually do that is to make the alarm not be able to turn off or close when I am on a break.
+The best way to actually do that is to make the alarm not be able to turn off or close when I am on a break
+
 If I want to turn it off then I would have to wait for my break to end and then I can decide to keep working or not
 
 But of course, if that happens and I about to finish my work, then I can just close the window
