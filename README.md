@@ -19,14 +19,14 @@ This failsafe prevents you and ME from ignoring the timer and forcing us to take
 
 ## Features
 Freeze Frame will only have a handful of features, to keep it simple to use and manage
-- Work Time
-    Work time/start time will be the time you will start the timer and start working
-- Break Time
-    Break time/pause time will be the time the timer takes to pause your screen and forces you to take a break
-- Profiles
-    These will contain sets of work time and break time so that the program knows how long to continue each section before starting the next one
-    A profile makes the program automatic and allows you to keep working the entire day
-    Multiple profiles can be created for different tasks
+### Work Time
+- Work time/start time will be the time you will start the timer and start working
+### Break Time
+- Break time/pause time will be the time the timer takes to pause your screen and forces you to take a break
+### Profiles
+- These will contain sets of work time and break time so that the program knows how long to continue each section before starting the next one
+- A profile makes the program automatic and allows you to keep working the entire day
+- Multiple profiles can be created for different tasks
 
 The completed program, because of it's simpicity, will not be getting any PR's
 The written features will be the only things implemented into the program
