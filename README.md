@@ -7,7 +7,7 @@ I realized that I needed to stop myself from turning off the alarm and let it re
 
 # Freeze Frame
 The best way to actually do that is to make the alarm not be able to turn off or close when I am on a break
-
+<br>
 If I want to turn it off then I would have to wait for my break to end and then I can decide to keep working or not
 
 But of course, if that happens and I about to finish my work, then I can just close the window
@@ -35,4 +35,4 @@ The written features will be the only things implemented into the program
 If you wish to add more features and want to improve it in some way, feel free to fork the repo
 This is all the work I need to do and what I will do the project, anything extra is unnecessary
 
-The finished program will have a download link <here>
+The finished program will have a download link [here]
