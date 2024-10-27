@@ -11,9 +11,13 @@ The best way to actually do that is to make the alarm not be able to turn off or
 If I want to turn it off then I would have to wait for my break to end and then I can decide to keep working or not
 
 But of course, if that happens and I about to finish my work, then I can just close the window
+<br>
 But then I can just remove the window controls from the top, removing the possibility of closing anything
+<br>
 But then I can just use ALT+F4 which will work no matter what
+<br>
 BUT, but what if I were to create another window when the break timer starts on top of everything and you would have to close that to close the timer
+<br>
 Which could work, if I didn't create a failsafe that relaunched THE WALL everytime it was closed while the break timer was still running
 
 This failsafe prevents you and ME from ignoring the timer and forcing us to take a break, instead of working continuously until we cannot work anymore
@@ -30,9 +34,11 @@ Freeze Frame will only have a handful of features, to keep it simple to use and 
 - Multiple profiles can be created for different tasks
 
 The completed program, because of it's simpicity, will not be getting any PR's
+<br>
 The written features will be the only things implemented into the program
 
 If you wish to add more features and want to improve it in some way, feel free to fork the repo
+<br>
 This is all the work I need to do and what I will do the project, anything extra is unnecessary
 
 The finished program will have a download link [here]
