@@ -1,2 +1,5 @@
 # ignore exe files, final version will be placed in readme
 *.exe
+
+# ignoring txt files, only used for testing
+*.txt
