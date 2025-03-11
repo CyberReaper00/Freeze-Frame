@@ -2,24 +2,35 @@
 #include <windows.h>
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
-    static HWND hButton;
+    static HWND btn1;
+    static HBRUSH brush1, brush2;
 
     switch (uMsg) {
 	case WM_CREATE:
-	    hButton = CreateWindow("BUTTON", "Button", WS_VISIBLE | WS_CHILD,
+	    btn1 = CreateWindow("BUTTON", "Button", WS_VISIBLE | WS_CHILD,
 		    0, 0, 100, 50, hwnd, (HMENU)1,
 		    ((LPCREATESTRUCT)lParam)->hInstance, NULL);
+	    
+	    brush1 = CreateSolidBrush(RGB(255, 100, 100));
+	    brush2 = CreateSolidBrush(RGB(100, 255, 100));
 	    break;
 
 	case WM_SIZE:
-	    if (hButton) {
+	    if (btn1) {
 		int winWidth = LOWORD(lParam);
 		int winHeight = HIWORD(lParam);
-		int btnWidth = 100;
-		int btnHeight = 50;
-		int btnX = (winWidth - btnWidth) / 2;
-		int btnY = (winHeight - btnHeight) / 2;
-		MoveWindow(hButton, btnX, btnY, btnWidth, btnHeight, TRUE);
+
+		int sectionWidth = winWidth * 0.3;
+		int sectionHeight = winHeight;
+
+		int btnWidth = 100,
+		    btnHeight = 50;
+
+		int btnX = (sectionWidth - btnWidth) * 0.5;
+		int btnY = (sectionHeight - btnHeight) * 0.5;
+
+		MoveWindow(btn1, btnX, btnY, btnWidth, btnHeight, TRUE);
+		InvalidateRect(hwnd, NULL, TRUE);
 	    }
 	    break;
 
@@ -28,7 +39,12 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 		HDC hdc = (HDC)wParam;
 		RECT rc;
 		GetClientRect(hwnd, &rc);
-		FillRect(hdc, &rc, (HBRUSH)(COLOR_WINDOW + 1));
+
+		RECT section1 = {rc.left, rc.top , rc.right * 0.3, rc.bottom};
+		RECT section2 = {rc.right * 0.3, rc.top , rc.right, rc.bottom};
+
+		FillRect(hdc, &section1, brush1);
+		FillRect(hdc, &section2, brush2);
 		return 1;
 	    }
 
@@ -36,14 +52,16 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
 	    {
 		PAINTSTRUCT ps;
 		HDC hdc = BeginPaint(hwnd, &ps);
-		FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
 		EndPaint(hwnd, &ps);
 	    }
 	    break;
 
 	case WM_DESTROY:
+	    DeleteObject(brush1);
+	    DeleteObject(brush2);
 	    PostQuitMessage(0);
 	    break;
+
 	default:
 	    return DefWindowProc(hwnd, uMsg, wParam, lParam);
     }
@@ -58,7 +76,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     RegisterClass(&wc);
 
-    HWND hwnd = CreateWindow("MyWindowClass", "My Window", WS_OVERLAPPEDWINDOW | WS_VISIBLE, 100, 100, 400, 300, NULL, NULL, hInstance, NULL);
+    HWND hwnd = CreateWindow("MyWindowClass", "My Window", WS_OVERLAPPEDWINDOW | WS_VISIBLE, 100, 100, 600, 400, NULL, NULL, hInstance, NULL);
 
     MSG msg;
     while (GetMessage(&msg, NULL, 0, 0)) {
